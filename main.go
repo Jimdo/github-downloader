@@ -56,7 +56,7 @@ func main() {
 		abort("Could not write to tmp file: %s", err)
 	}
 
-	if err := os.Chmod(tmpFile.Name(), 0775); err != nil {
+	if err := os.Chmod(tmpFile.Name(), 0755); err != nil {
 		abort("Could not chmod tmp file: %s", err)
 	}
 
