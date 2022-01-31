@@ -1,0 +1,16 @@
+name: CICD_github-downloader
+on:
+  push:
+    branches: [ master ]
+  schedule:
+  - cron: '5 0 * * 2'
+jobs:
+  BuildDeploy:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Make Test
+        run: make test
+
+      - name: Run Test
+        run: test -n "$GITHUB_TAG" && make release
